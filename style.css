@@ -48,3 +48,14 @@ h1 {
     font-size: 18px;
     margin-bottom: 10px;
 }
+
+/* Radio button styles */
+.step label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.step input[type="radio"] {
+    margin-right: 10px;
+}
