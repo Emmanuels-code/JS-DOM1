@@ -48,3 +48,64 @@ function loadSelectedOptions() {
         }
     });
 }
+window.addEventListener('load', () => {
+    // Clear all quiz-related items from localStorage
+    questions.forEach((q, index) => {
+        localStorage.removeItem(`question-${index}`);
+    });
+
+    // Manually reset all radio buttons
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(radio => {
+        radio.checked = false;
+    });
+
+    // Re-render questions to reflect the reset
+    renderQuestions();
+});
+function renderQuestions() {
+    questionsContainer.innerHTML = ''; // Clear existing content
+
+    questions.forEach((q, index) => {
+        const questionDiv = document.createElement('div');
+        questionDiv.classList.add('step');
+        if (index === currentStep) questionDiv.classList.add('active');
+
+        questionDiv.innerHTML = `<p>${q.question}</p>`;
+
+
+                // Add a blank option at the start
+                const blankOption = document.createElement('input');
+                blankOption.type = 'radio';
+                blankOption.name = `question-${index}`;
+                blankOption.value = '';
+                blankOption.disabled = true;
+                blankOption.style.display = 'none'; // Hide the blank option
+        
+                const blankLabel = document.createElement('label');
+                blankLabel.appendChild(blankOption);
+                questionDiv.appendChild(blankLabel);
+        
+                // Render the actual options
+                q.options.forEach((option) => {
+                    const input = document.createElement('input');
+                    const label = document.createElement('label');
+        
+                    input.type = 'radio';
+                    input.name = `question-${index}`;
+                    input.value = option;
+        
+                    // Check if this option was previously selected
+                    const savedOption = localStorage.getItem(`question-${index}`);
+                    if (savedOption === option) {
+                        input.checked = true;
+                    }
+        
+                    label.appendChild(input);
+                    label.appendChild(document.createTextNode(option));
+                    questionDiv.appendChild(label);
+                });
+        
+                questionsContainer.appendChild(questionDiv);
+            });
+        
