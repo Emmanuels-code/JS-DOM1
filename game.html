@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manny's puzzle game</title>
+    <style>
+      .step {
+        display: none;
+      }
+      .step.active {
+        display: block;
+      }
+      .navigation-buttons {
+        margin-top: 20px;
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="login-section" class="hidden">
+      <h1>Please log in to access the quiz</h1>
+      <a href="index.html">Login</a>
+    </div>
+    <div id="quiz-section" class="hidden">
+      <div class="header_login">
+        <h4 id="welcomeuser">Welcome admin!</h4>
+        <button id="logout-btn">Log Out</button>
+      </div>
+      <h1>Welcome to my puzzle game</h1>
