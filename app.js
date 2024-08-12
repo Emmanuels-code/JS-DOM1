@@ -219,3 +219,19 @@ function playAgain() {
 
     renderQuestions();
 }
+
+document.querySelector('#playagain').addEventListener('click', playAgain);
+
+document.querySelector('#logout-btn').addEventListener('click', logout);
+
+// Register event listeners
+prevBtn.addEventListener('click', () => navigate(-1));
+nextBtn.addEventListener('click', () => navigate(1));
+form.addEventListener('submit', handleSubmit);
+
+// Initial render and load saved options
+renderQuestions();
+loadSelectedOptions(); // Load saved options
+
+handleHistory();
+retrieveLastScore();
