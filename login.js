@@ -25,3 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
             errorMessageDiv.textContent = 'Invalid username or password';
         }
     });
+
+    const loggedInUser = sessionStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+        alert(`Welcome back, ${loggedInUser}!`);
+        window.location.href = 'game.html';
+    }
+});
