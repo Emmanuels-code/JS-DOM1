@@ -203,3 +203,19 @@ function logout() {
 
     window.location.href = 'index.html';
 }
+function playAgain() {
+
+    questions.forEach((q, index) => {
+        localStorage.removeItem(`question-${index}`);
+    });
+
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(radio => {
+        radio.checked = false;
+    });
+    currentStep = 0;
+    resultDiv.textContent = '';
+    seeyou.textContent = '';
+
+    renderQuestions();
+}
