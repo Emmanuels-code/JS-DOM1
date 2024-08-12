@@ -134,3 +134,25 @@ function navigate(step) {
     if (currentStep >= questions.length) currentStep = questions.length - 1;
     renderQuestions();
 }
+
+
+// Function to handle form submission
+function handleSubmit(event) {
+    event.preventDefault();
+    let score = 0;
+
+    questions.forEach((q, index) => {
+        const selectedOption = document.querySelector(`input[name="question-${index}"]:checked`);
+        if (selectedOption && selectedOption.value === q.answer) {
+            score++;
+        }
+    });
+
+    resultDiv.textContent = `You scored ${score} out of ${questions.length}!`;
+    document.getElementById('playagain').style.display = 'unset';
+
+    seeyou.textContent = 'Hope you enjoyed my game? See you next time... bye!'
+
+    // Save score to localStorage
+    localStorage.setItem('lastScore', score);
+}
