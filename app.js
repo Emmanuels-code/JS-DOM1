@@ -29,3 +29,4 @@ const questions = [
     { question: 'What has to be broken before you can use it?', options: ['Egg', 'Cup', 'Window'], answer: 'Egg' },
     { question: 'What is the largest planet in our solar system?', options: ['Earth', 'Jupiter', 'Saturn'], answer: 'Jupiter' }
 ];
+let currentStep = 0;
