@@ -30,3 +30,20 @@ const questions = [
     { question: 'What is the largest planet in our solar system?', options: ['Earth', 'Jupiter', 'Saturn'], answer: 'Jupiter' }
 ];
 let currentStep = 0;
+
+// Save selected option to localStorage
+function saveSelectedOption() {
+    const selectedOption = document.querySelector(`input[name="question-${currentStep}"]:checked`);
+    if (selectedOption) {
+        localStorage.setItem(`question-${currentStep}`, selectedOption.value);
+    }
+}
+
+// Load selected options from localStorage
+function loadSelectedOptions() {
+    questions.forEach((q, index) => {
+        const savedOption = localStorage.getItem(`question-${index}`);
+        if (savedOption) {
+            document.querySelector(`input[name="question-${index}"][value="${savedOption}"]`).checked = true;
+        }
+    });
