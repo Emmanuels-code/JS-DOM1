@@ -113,4 +113,24 @@ function renderQuestions() {
  nextBtn.style.display = (currentStep === questions.length - 1) ? 'none' : 'inline';
  submitBtn.style.display = (currentStep === questions.length - 1) ? 'inline' : 'none';
 }
-    
+  
+// Function to check if an option is selected
+function isOptionSelected() {
+    const selectedOption = document.querySelector(`input[name="question-${currentStep}"]:checked`);
+    return selectedOption !== null;
+}
+
+// Function to handle next and previous navigation
+function navigate(step) {
+    if (step === 1 && !isOptionSelected()) {
+        alert('Please select an option before proceeding.');
+        return;
+    }
+
+    saveSelectedOption(); // Save the selected option before navigating
+
+    currentStep += step;
+    if (currentStep < 0) currentStep = 0;
+    if (currentStep >= questions.length) currentStep = questions.length - 1;
+    renderQuestions();
+}
