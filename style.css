@@ -8,3 +8,10 @@ body {
     background-image: url('bg.png');
     background-size: cover;
 }
+
+/* Header styles */
+h1 {
+    text-align: center;
+    color: #050505;
+    margin-bottom: 20px;
+}
