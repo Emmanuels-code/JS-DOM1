@@ -47,3 +47,4 @@ function loadSelectedOptions() {
             document.querySelector(`input[name="question-${index}"][value="${savedOption}"]`).checked = true;
         }
     });
+}
