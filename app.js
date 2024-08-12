@@ -182,3 +182,24 @@ function retrieveLastScore() {
         document.body.insertBefore(scoreDiv, form);
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loginSection = document.getElementById('login-section');
+    const quizSection = document.getElementById('quiz-section');
+
+    const loggedInUser = sessionStorage.getItem('loggedInUser');
+
+    if (loggedInUser) {
+        quizSection.classList.remove('hidden');
+        document.getElementById('welcomeuser').textContent = 'Welcome ' + loggedInUser;
+    } else {
+        loginSection.classList.remove('hidden');
+    }
+});
+
+function logout() {
+    sessionStorage.clear();
+
+    window.location.href = 'index.html';
+}
