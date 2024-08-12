@@ -156,3 +156,29 @@ function handleSubmit(event) {
     // Save score to localStorage
     localStorage.setItem('lastScore', score);
 }
+
+
+// Example 2: Control Browser History
+function handleHistory() {
+    const goBackBtn = document.createElement('button');
+    goBackBtn.textContent = 'Go Back';
+    goBackBtn.addEventListener('click', () => {
+        if (history.length > 1) {
+            history.back();
+        } else {
+            alert('No previous history.');
+        }
+    });
+    document.body.insertBefore(goBackBtn, form);
+}
+
+
+// Example 4: Retrieve Last Score from Local Storage
+function retrieveLastScore() {
+    const lastScore = localStorage.getItem('lastScore');
+    if (lastScore) {
+        const scoreDiv = document.createElement('div');
+        scoreDiv.textContent = `Your Last Score: ${lastScore}`;
+        document.body.insertBefore(scoreDiv, form);
+    }
+}
