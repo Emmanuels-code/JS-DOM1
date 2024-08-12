@@ -108,4 +108,9 @@ function renderQuestions() {
         
                 questionsContainer.appendChild(questionDiv);
             });
-        
+ // Toggle button visibility
+ prevBtn.style.display = (currentStep === 0) ? 'none' : 'inline';
+ nextBtn.style.display = (currentStep === questions.length - 1) ? 'none' : 'inline';
+ submitBtn.style.display = (currentStep === questions.length - 1) ? 'inline' : 'none';
+}
+    
